@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+#order allow,deny
+# ½ûÖ¹Ò»¸öipµØÖ·
+#deny from 127.0.0.1
+
+
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+
+ 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+
+</IfModule>
