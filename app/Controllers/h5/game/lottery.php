@@ -6,14 +6,16 @@
  * Time: 10:53
  */
 
-namespace h5\game;
+namespace Controllers\h5\game;
+use Services\LotteryService;
 
 class lottery
 {
     public function home()
     {
         $name = !empty($_GET['name']) ? $_GET['name'] : "man";
-        
-        return "hello {$name}, welcome to lottery game!";
+        $prizes = (new LotteryService)->getPrizes();
+        $prize = current($prizes);
+        return "你好 {$name}, 你获得了{$prize['name']}!";
     }
 }

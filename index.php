@@ -11,8 +11,7 @@ include __DIR__."/autoload.php";
 $arrUri = parse_url($_SERVER['REQUEST_URI']);
 $path = str_replace("/","\\",$arrUri['path']);
 $pos = strrpos($path,"\\");
-
-$controllerClass = substr($path,0,$pos);
+$controllerClass = "Controllers".substr($path,0,$pos);
 $actionClass = substr($path,$pos+1);
 
 $instance = new $controllerClass();

@@ -8,7 +8,7 @@
 
 function app_autoload($className)
 {
-    $file = __DIR__."\\app\\Controllers\\".$className.".php";
+    $file = __DIR__."\\app\\".$className.".php";
     require_once $file;
 }
 

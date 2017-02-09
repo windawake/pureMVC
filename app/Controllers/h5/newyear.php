@@ -6,7 +6,7 @@
  * Time: 10:17
  */
 
-namespace h5;
+namespace Controllers\h5;
 
 
 class newyear
