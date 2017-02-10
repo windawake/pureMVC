@@ -4,7 +4,7 @@ namespace Models;
 class ORM implements \ArrayAccess
 {
     public $host = '127.0.0.1';  //数据库地址
-    public $dbname = 'test';   //数据库名
+    public $dbname = 'puremvc';   //数据库名
     public $user = 'root';  //数据库用户名
     public $pwd = '';   //数据库密码
     public $port = '3306';  //数据库端口
@@ -20,6 +20,7 @@ class ORM implements \ArrayAccess
             $dsn = "mysql:host=$this->host;dbname=$this->dbname;charset=$this->charset;port=$this->port";
             $this->conn = new \PDO( $dsn, $this->user, $this->pwd );
         }
+
     }
 
     //field语句
@@ -203,6 +204,8 @@ class ORM implements \ArrayAccess
             $result[$key] = $arrObj;
             unset( $arrObj );
         }
+
+        var_dump($result);exit;
 
         return $result;
     }

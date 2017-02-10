@@ -14,7 +14,7 @@ class LotteryService
     public function getPrizes()
     {
         $product = new Product;
-        $arrProduct = $product->getData();
+        $arrProduct = $product->select();
         return $arrProduct;
     }
 }
