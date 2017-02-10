@@ -7,6 +7,7 @@
  */
 
 include __DIR__."/autoload.php";
+define('ROOT_PATH',__DIR__);
 
 $arrUri = parse_url($_SERVER['REQUEST_URI']);
 $path = str_replace("/","\\",$arrUri['path']);

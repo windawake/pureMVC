@@ -205,8 +205,6 @@ class ORM implements \ArrayAccess
             unset( $arrObj );
         }
 
-        var_dump($result);exit;
-
         return $result;
     }
 

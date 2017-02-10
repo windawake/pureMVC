@@ -7,17 +7,18 @@
  */
 
 namespace Controllers\h5\game;
+use Controllers\Controller;
 use Services\LotteryService;
 
-class lottery
+class lottery extends Controller
 {
     public function home()
     {
-        $name = !empty($_GET['name']) ? $_GET['name'] : "man";
-
         $prizes = (new LotteryService)->getPrizes();
-        //var_dump($prizes);exit;
-        $prize = current($prizes);
-        return "你好{$name}, 你获得了{$prize->title}!";
+        $data = array(
+            'products'=>$prizes,
+            'level'=>2,
+        );
+        return $this->view('lottery',$data);
     }
 }
