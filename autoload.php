@@ -6,12 +6,9 @@
  * Time: 10:12
  */
 
-function app_autoload($className)
-{
-    $file = __DIR__."\\app\\".$className.".php";
-    require_once $file;
-}
 
-spl_autoload_register("app_autoload");
+require __DIR__.'/app/Autoloader.php';
+
+Autoloader::register();
 
 

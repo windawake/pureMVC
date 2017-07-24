@@ -1,10 +1,10 @@
 <?php
-namespace Models;
+namespace App\Models;
 
 class ORM implements \ArrayAccess
 {
     public $host = '127.0.0.1';  //数据库地址
-    public $dbname = 'puremvc';   //数据库名
+    public $dbname = 'menqiansong';   //数据库名
     public $user = 'root';  //数据库用户名
     public $pwd = '';   //数据库密码
     public $port = '3306';  //数据库端口
@@ -50,9 +50,13 @@ class ORM implements \ArrayAccess
     {
         $this->alias['where'] = '';
         if( is_array( $where ) ){
-
             foreach( $where as $key=>$vo ){
-                $this->alias['where'] .= " `$key`" . ' = ' . $vo . ' and ';
+                if(preg_match("/<|>|!/",$key)){
+                    $this->alias['where'] .= " $key '$vo' and ";
+                }else{
+                    $this->alias['where'] .= " `$key`" . ' = ' . $vo . ' and ';
+                }
+                
             }
             $this->alias['where'] = rtrim( $this->alias['where'], 'and ' );
 
@@ -234,7 +238,7 @@ class ORM implements \ArrayAccess
             $this->sql .= " `{$key}` = '" . $vo . "',";
         }
 
-        $this->conn->exec( rtrim( $this->sql, ',' ) );
+        $res = $this->conn->exec( rtrim( $this->sql, ',' ) );
         return $this->conn->lastInsertId();
     }
 
@@ -251,6 +255,7 @@ class ORM implements \ArrayAccess
         }
 
         $this->sql = rtrim( $this->sql, ',' ) . ' where ' . $this->alias['where'];
+
         return $this->conn->exec( $this->sql );
 
     }

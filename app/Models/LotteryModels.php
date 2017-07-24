@@ -9,12 +9,13 @@
 namespace App\Models;
 
 
-class Product extends ORM
+class LotteryModels extends ORM
 {
     public function __construct()
     {
         parent::__construct();
-        $this->table('products');
+        $this->table('lottery');
         return $this;
     }
+    
 }

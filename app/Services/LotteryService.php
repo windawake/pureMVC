@@ -6,8 +6,8 @@
  * Time: 18:37
  */
 
-namespace Services;
-use Models\Product;
+namespace App\Services;
+use App\Models\Product;
 
 class LotteryService
 {

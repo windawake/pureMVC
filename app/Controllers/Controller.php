@@ -6,7 +6,7 @@
  * Time: 11:09
  */
 
-namespace Controllers;
+namespace App\Controllers;
 
 
 class Controller

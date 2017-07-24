@@ -6,7 +6,7 @@
  * Time: 10:17
  */
 
-namespace Controllers\h5;
+namespace App\Controllers\h5;
 
 
 class newyear
